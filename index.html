@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="syle.css">
+    <title>tip_calculator</title>
+</head>
+<body>
+    <!-- container -->
+    <section id="container">
+        <!--titel-->
+        <h1>TIP CALCULATOR</h1>
+        <!-- start form -->
+        <form id="content">
+            <p> How much was your bill? </p>
+            <!-- input (your price)amount-->
+            <span>$</span> <input  id="amount" type="text" placeholder="Enter bill amount" required>
+
+            <p> How was your service? </p>
+            <!-- select your qulity -->
+            <select id="the_quality" >
+                <option value="" ></option>
+                <option value=".05">Terrible - 5%</option>
+                <option value=".1">Bad - 10%</option>
+                <option value=".15">OK - 15%</option>
+                <option value=".2">Good - 20%</option>
+                <option value=".3">Outstanding - 30%</option>
+            </select>
+            
+
+            <p> How many people are sharing the bill? </p>
+            <!-- input (number of people)-->
+            <input type="number" id="number" placeholder="How many ...." required> <span >people</span>
+            <br>
+            <br> 
+            <button id="calcbtn"> CALCULATE! </button>
+        </form>
+        <!-- end form -->
+        <!-- start results-->
+        <section id="results">
+            <h3>TIP AMOUNT</h3>
+            <p>$ <span id="result">00.00</span></p>
+            <h5 id="each">each</h5>
+        </section>
+        <!-- end resuls-->
+    </section>
+    <!-- ens container-->
+
+    <script src="main.js"></script>
+</body>
+</html>

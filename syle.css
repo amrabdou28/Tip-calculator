@@ -1,0 +1,55 @@
+/*--style --*/
+body{
+    background-color: #008080;
+
+}
+/*-- conttainer style--*/
+#container{
+    border: 2px solid #34333d;
+    border-radius: 10%;
+    max-width: 300px;
+    text-align: center;
+    margin-top: 150px;
+    margin-left: 40%;
+    background-color: #251d1d;
+}
+#container h1 {
+    background-color: #aa3a3a;
+    border-radius: 6px;
+}
+#container #content p {
+    color: #6767ad;
+}
+#container #content span {
+    color: #6767ad;
+}
+/*-- qulity section style--*/
+#container #content input , #container #content #the_quality {
+    background: #423A6F;
+    color: #fff;
+    border: 1px;
+    border-radius: 2px;
+	background: #423;
+}
+#container #content #the_quality   option{
+    color: #506061;
+}
+/*-- button style--*/
+#container #content button {
+    background: #423A6F;
+    color: #000000;
+    border: 2px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+#container #content button:hover {
+    background: #4d4a45;
+    color: #ee82ee;
+}
+/*--  results style--*/
+
+#container #results:before{
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+}
