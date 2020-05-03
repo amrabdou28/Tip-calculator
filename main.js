@@ -1,35 +1,48 @@
-function calculateTip(){
-    //select element
-    var billAmount = document.getElementById ("amount").value;
-    var quality = document.getElementById ("the_quality").value;
-    var peopleNum = document.getElementById ("number").value;
-   
+// select element
+let amount = document.getElementById ("amount");
+let quality = document.getElementById ("the_quality");
+let peopleNumber = document.getElementById ("number");
 
 
- 
-  
-    //checking if  input is empty or not!
-    if (billAmount === "" || peopleNum === "" ){
-        alert("please fill input first");
-        return;
 
+//hide the results section
+document.getElementById("results").style.display = "none";
+
+class container{
+    //clculateBill  
+    calculateBill(amount,quality,peopleNumber){
+        var calculat = (this.amount / this.peopleNumber) * this.quality;
+        calculat = Math.round(calculat * 100) / 100;
+    }
+    // add result to html
+    billResult(){
+        document.getElementById("result").innerHTML = "calculateBill";
+        
+    }
+    chickInput(){
+        document.getElementById('calcbtn').addEventListener('click',()=>{
+            
+            if(amount.value === "" || peopleNumber.value === ""){
+                alert('please fill input first!!')
+            }
+            else if(amount.value <= 0 ||peopleNumber.value <= 0){
+                alert("Invaild value");
+                peopleNumber.focus();
+                amount.focus();
+            }
+            else{
+                this.billResult();
+                document.getElementById("results").style.display = "block";
+
+            }
+        })
     };
-    
-
-    var result = ( billAmount*quality)/peopleNum;
-    result = Math.round(total*100)/100;
-    return result;
-
-    document.getElementById ("results").style.display ="block";
-    document.getElementById ("result").innerHTML = total;
-
-}
 
 
+};
+const calce = new container();
+calce.chickInput();
 
-document.getElementById ("results").style.display ="none";
-
-document.getElementById ("calcbtn").onclick = function(){
-    calculateTip();
-}
-
+document.querySelector('form').addEventListener('click',(e)=>{
+    e.preventDefault();
+})
