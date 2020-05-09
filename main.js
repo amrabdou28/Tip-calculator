@@ -3,6 +3,8 @@ let amount = document.getElementById ("amount");
 let quality = document.getElementById ("the_quality");
 let peopleNumber = document.getElementById ("number");
 let inputs =document.querySelectorAll ("input");
+let form = document.getElementById ("content");
+let resetBtn = document.getElementById("reset");
 
 
 //hide the results section
@@ -10,30 +12,34 @@ document.getElementById("results").style.display = "none";
 
 
 class container{
+    cont(amount,quality,peopleNumber){
+		this.amount = amount;
+		this.quality = quality;
+		this.peopleNumber = peopleNumber;
+		}
+
     //calculateBill  
     calculateBill(amount,quality,peopleNumber){
-        var calculat = (this.amount / this.peopleNumber) * this.quality;
+        let calculat = (this.amount / this.peopleNumber) * this.quality;
         calculat = Math.round(calculat * 100) / 100;
-        return calculat();
+        return calculat;
+        
         
         
     }
     
-    // add result to html
-    billResult(){
-        document.getElementById("result").innerHTML = this.calculat;
-        
-    }
+    
     resetForm(){
-        amount.value ="";
+        amount.value = "";
         peopleNumber.value = "";
+
     }
 
     
     
         
     
-    chickInput(){
+    checkInput(){
         document.getElementById('calcbtn').addEventListener('click',()=>{
             
             if(amount.value === "" || peopleNumber.value === ""){
@@ -47,9 +53,9 @@ class container{
                 this.resetForm();
             }
             else{
-                this.billResult();
+                this.calculateBill();
                 document.getElementById("results").style.display = "block";
-                this.resetForm();
+                
 
             }
         })
@@ -58,8 +64,27 @@ class container{
 
 };
 const calce = new container();
-calce.chickInput();
+calce.checkInput();
 
-document.querySelector('form').addEventListener('click',(e)=>{
+document.querySelector('form').addEventListener('submit',(e)=>{
     e.preventDefault();
-})
+    let calculator = new container(amount.value,peopleNumber.value,quality);
+    calculator.checkInput();
+    let showData = results;
+    let calc = "";
+    calc += '<h3>TIP AMOUNT</h3>'+
+            '<p>$ <span>' + calculator .calculateBill() +'</span></p>'+
+            '<h5 id="each">each</h5>';
+    showData.innerHTML =calc;
+
+});
+
+resetBtn.addEventListener("click" , function(e) {
+	e.preventDefault();
+	//reset data
+    inputs.reset();
+    document.getElementById("results").style.display = "none";
+
+
+
+});
