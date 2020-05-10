@@ -24,14 +24,14 @@ body{
     color: #6767ad;
 }
 /*-- qulity section style--*/
-#container #content input , #container #content #the_quality {
+#container #content input , #container #content #quality {
     background: #423A6F;
     color: #fff;
     border: 1px;
     border-radius: 2px;
 	background: #423;
 }
-#container #content #the_quality   option{
+#container #content #quality   option{
     color: #506061;
 }
 /*-- button style--*/

@@ -1,6 +1,6 @@
 // select element
 let amount = document.getElementById ("amount");
-let quality = document.getElementById ("the_quality");
+let quality = document.getElementById ("quality");
 let peopleNumber = document.getElementById ("number");
 let inputs =document.querySelectorAll ("input");
 let form = document.getElementById ("content");
@@ -68,21 +68,25 @@ calce.checkInput();
 
 document.querySelector('form').addEventListener('submit',(e)=>{
     e.preventDefault();
+    
     let calculator = new container(amount.value,peopleNumber.value,quality);
     calculator.checkInput();
     let showData = results;
     let calc = "";
     calc += '<h3>TIP AMOUNT</h3>'+
-            '<p>$ <span>' + calculator .calculateBill() +'</span></p>'+
+            '<p>$ <span>' + calculator. calculateBill() +'</span></p>'+
             '<h5 id="each">each</h5>';
-    showData.innerHTML =calc;
+    showData.innerHTML = calc;
 
 });
 
 resetBtn.addEventListener("click" , function(e) {
 	e.preventDefault();
 	//reset data
-    inputs.reset();
+    resetForm="";
+    amount.value = "";
+    peopleNumber.value = "";
+
     document.getElementById("results").style.display = "none";
 
 
