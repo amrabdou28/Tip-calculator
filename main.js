@@ -2,13 +2,10 @@
 let amount = document.getElementById ("amount");
 let quality = document.getElementById ("quality");
 let peopleNumber = document.getElementById ("number");
-let inputs =document.querySelectorAll ("input");
+let inputs =document.querySelector ("input");
 let form = document.getElementById ("content");
 let resetBtn = document.getElementById("reset");
 
-
-//hide the results section
-document.getElementById("results").style.display = "none";
 
 
 class container{
@@ -62,14 +59,14 @@ class container{
     };
 
 
-};
+}
 const calce = new container();
 calce.checkInput();
 
 document.querySelector('form').addEventListener('submit',(e)=>{
     e.preventDefault();
     
-    let calculator = new container(amount.value,peopleNumber.value,quality);
+    let calculator = new container(amount.value,peopleNumber.value,quality.value);
     calculator.checkInput();
     let showData = results;
     let calc = "";
@@ -83,7 +80,6 @@ document.querySelector('form').addEventListener('submit',(e)=>{
 resetBtn.addEventListener("click" , function(e) {
 	e.preventDefault();
 	//reset data
-    resetForm="";
     amount.value = "";
     peopleNumber.value = "";
 
