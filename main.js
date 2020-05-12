@@ -16,7 +16,7 @@ class container{
 		}
 
     //calculateBill  
-    calculateBill(amount,quality,peopleNumber){
+    calculateBill(){
         let calculat = (this.amount / this.peopleNumber) * this.quality;
         calculat = Math.round(calculat * 100) / 100;
         return calculat;
@@ -31,9 +31,6 @@ class container{
         peopleNumber.value = "";
 
     }
-
-    
-    
         
     
     checkInput(){
@@ -41,13 +38,14 @@ class container{
             
             if(amount.value === "" || peopleNumber.value === ""){
                 alert('please fill input first!!');
-                peopleNumber.focus();
-                amount.focus();
+                document.getElementById("results").style.display = "none";
             
             }
             else if(amount.value <= 0 ||peopleNumber.value <= 0){
                 alert("Invaild value");
                 this.resetForm();
+                document.getElementById("results").style.display = "none";
+
             }
             else{
                 this.calculateBill();
@@ -59,16 +57,16 @@ class container{
     };
 
 
-}
-const calce = new container();
-calce.checkInput();
+};
+//const calce = new container();
+//calce.checkInput();
 
 document.querySelector('form').addEventListener('submit',(e)=>{
     e.preventDefault();
     
     let calculator = new container(amount.value,peopleNumber.value,quality.value);
     calculator.checkInput();
-    let showData = results;
+    let showData = document.getElementById("results");
     let calc = "";
     calc += '<h3>TIP AMOUNT</h3>'+
             '<p>$ <span>' + calculator. calculateBill() +'</span></p>'+
@@ -79,7 +77,8 @@ document.querySelector('form').addEventListener('submit',(e)=>{
 
 resetBtn.addEventListener("click" , function(e) {
 	e.preventDefault();
-	//reset data
+    //reset data
+    resetForm="";
     amount.value = "";
     peopleNumber.value = "";
 
