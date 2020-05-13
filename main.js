@@ -9,7 +9,7 @@ let resetBtn = document.getElementById("reset");
 
 
 class container{
-    cont(amount,quality,peopleNumber){
+    constructor(amount,quality,peopleNumber){
 		this.amount = amount;
 		this.quality = quality;
 		this.peopleNumber = peopleNumber;
@@ -53,13 +53,12 @@ class container{
                 
 
             }
-        })
+        });
     };
 
 
 };
-//const calce = new container();
-//calce.checkInput();
+
 
 document.querySelector('form').addEventListener('submit',(e)=>{
     e.preventDefault();
